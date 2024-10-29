@@ -4,6 +4,7 @@ import de.hysky.skyblocker.config.SkyblockerConfigManager;
 import de.hysky.skyblocker.skyblock.slayers.boss.vampire.ManiaIndicator;
 import de.hysky.skyblocker.skyblock.slayers.boss.vampire.StakeIndicator;
 import de.hysky.skyblocker.skyblock.slayers.boss.vampire.TwinClawsIndicator;
+import de.hysky.skyblocker.skyblock.slayers.features.PersonalBest;
 import de.hysky.skyblocker.skyblock.slayers.features.SlainTime;
 import de.hysky.skyblocker.utils.RomanNumerals;
 import de.hysky.skyblocker.utils.Utils;
@@ -62,6 +63,7 @@ public class SlayerManager {
         Scheduler.INSTANCE.scheduleCyclic(TwinClawsIndicator::updateIce, SkyblockerConfigManager.get().slayers.vampireSlayer.holyIceUpdateFrequency);
         Scheduler.INSTANCE.scheduleCyclic(ManiaIndicator::updateMania, SkyblockerConfigManager.get().slayers.vampireSlayer.maniaUpdateFrequency);
         Scheduler.INSTANCE.scheduleCyclic(StakeIndicator::updateStake, SkyblockerConfigManager.get().slayers.vampireSlayer.steakStakeUpdateFrequency);
+        PersonalBest.init();
     }
 
     private static void onChatMessage(Text text, boolean b) {
@@ -202,6 +204,10 @@ public class SlayerManager {
 
     public static String getSlayerType() {
         return slayerType;
+    }
+
+    public static String getSlayerTier() {
+        return slayerTier;
     }
 
     public static SlayerQuest getSlayerQuest() {
