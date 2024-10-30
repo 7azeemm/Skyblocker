@@ -44,7 +44,7 @@ public class SlayerHudWidget extends Widget {
                     case "Revenant Horror" -> SlayerConstants.ZombieLevelMilestones[level];
                     case "Tarantula Broodfather" -> SlayerConstants.SpiderLevelMilestones[level];
                     case "Riftstalker Bloodfiend" -> SlayerConstants.VampireLevelMilestones[level];
-                    default -> SlayerConstants.RegularLevelMilestones[SlayerManager.level + 2];
+                    default -> SlayerConstants.RegularLevelMilestones[level];
                 };
                 int currentXP = nextMilestone - SlayerManager.xpRemaining;
                 addSimpleIcoText(Ico.ENCHANTING_TABLE, "Level up in: ", Formatting.AQUA, numberFormat.format(currentXP) + "/" + numberFormat.format(nextMilestone));
