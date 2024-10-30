@@ -52,7 +52,7 @@ public class SlayerManager {
             SlainTime.onBossDeath(startTime);
         });
         actions.put(SlayerAction.COMPLETE, () -> {
-            if (!quest.slain)
+            if (quest != null && !quest.slain)
                 SlainTime.onBossDeath(startTime);
             quest = null;
         });
